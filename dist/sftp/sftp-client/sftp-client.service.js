@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var SftpClientService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SftpClientService = void 0;
 const common_1 = require("@nestjs/common");
 const SftpClient = require("ssh2-sftp-client");
 let SftpClientService = SftpClientService_1 = class SftpClientService {
@@ -44,7 +45,9 @@ let SftpClientService = SftpClientService_1 = class SftpClientService {
         return await this.sftpClient.realPath(remotePath);
     }
     async upload(contents, remoteFilePath, options = null) {
-        return await this.sftpClient.put(contents, remoteFilePath, options);
+        return await this.sftpClient.put(contents, remoteFilePath, {
+            writeStreamOptions: options,
+        });
     }
     async list(remoteDirectory, pattern) {
         return await this.sftpClient.list(remoteDirectory);
@@ -72,7 +75,7 @@ let SftpClientService = SftpClientService_1 = class SftpClientService {
     }
 };
 SftpClientService = SftpClientService_1 = __decorate([
-    common_1.Injectable(),
+    (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [SftpClient])
 ], SftpClientService);
 exports.SftpClientService = SftpClientService;

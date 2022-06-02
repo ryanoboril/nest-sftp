@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var SftpModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SftpModule = void 0;
 const common_1 = require("@nestjs/common");
 const sftp_client_service_1 = require("./sftp-client/sftp-client.service");
 const SftpClient = require("ssh2-sftp-client");
@@ -68,8 +69,8 @@ let SftpModule = SftpModule_1 = class SftpModule {
     }
 };
 SftpModule = SftpModule_1 = __decorate([
-    common_1.Global(),
-    common_1.Module({
+    (0, common_1.Global)(),
+    (0, common_1.Module)({
         providers: [sftp_client_service_1.SftpClientService],
         exports: [sftp_client_service_1.SftpClientService],
     })

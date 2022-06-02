@@ -1,6 +1,7 @@
 /// <reference types="node" />
-import { WriteStreamOptions } from 'ssh2-streams';
+/// <reference types="node" />
 import { ConnectConfig } from 'ssh2';
+import { WriteStreamOptions } from 'ssh2-sftp-client';
 import SftpClient = require('ssh2-sftp-client');
 export declare class SftpClientService {
     private readonly sftpClient;
